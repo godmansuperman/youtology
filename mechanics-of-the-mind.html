@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="The Mechanics of The Mind by Adam King — a digital book on the quiet, unspoken power that lives inside every human being. EPUB and PDF, $7.99." />
+  <link rel="icon" href="data:," />
+  <title>The Mechanics of The Mind — Adam King</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f7f8;
+      --surface: #ffffff;
+      --surface-2: #eaf0f2;
+      --ink: #0a2234;
+      --muted: #486173;
+      --line: #cbd7dd;
+      --accent: #a44a25;
+      --accent-ink: #ffffff;
+      --deep: #071d2e;
+      --on-deep: #f6fafc;
+      --on-deep-muted: #bfd0da;
+      --focus: #d86935;
+      --shadow: 0 20px 50px rgba(13, 35, 50, .12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #07131d;
+        --surface: #0d202e;
+        --surface-2: #142b3b;
+        --ink: #f5f8fa;
+        --muted: #b7c7d1;
+        --line: #2d4554;
+        --accent: #e27b49;
+        --accent-ink: #101820;
+        --deep: #040d14;
+        --on-deep: #f7fafb;
+        --on-deep-muted: #b8cbd6;
+        --focus: #ff9b67;
+        --shadow: 0 20px 55px rgba(0,0,0,.32);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+
+    .topbar {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 1.15rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar a { text-decoration: none; font-weight: 700; }
+    .topbar a:hover { text-decoration: underline; text-underline-offset: .25rem; }
+
+    .page {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 2rem 0 5rem;
+    }
+    .book {
+      display: grid;
+      grid-template-columns: minmax(240px, 340px) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: start;
+    }
+    .cover img {
+      width: 100%;
+      height: auto;
+      border-radius: .5rem;
+      box-shadow: var(--shadow);
+    }
+    .book h1 {
+      margin: 0 0 .4rem;
+      font-family: "Newsreader", serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+    .byline {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .price {
+      margin: 0 0 1.4rem;
+      font-family: "Newsreader", serif;
+      font-size: 2rem;
+      font-weight: 650;
+    }
+    .price span { color: var(--muted); font-family: "DM Sans", sans-serif; font-size: 1rem; font-weight: 400; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: .85rem 1.6rem;
+      border-radius: .45rem;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
+    .button:hover { background: #c96537; }
+    .buy-note { margin: .8rem 0 0; color: var(--muted); font-size: .92rem; }
+    .intro { margin-top: 2.2rem; font-size: 1.08rem; }
+    .intro p { margin: 0 0 1rem; }
+    .intro em { font-family: "Newsreader", serif; font-size: 1.2rem; }
+
+    .chapters { margin-top: 3.5rem; }
+    .chapters h2 {
+      margin: 0 0 1.2rem;
+      font-family: "Newsreader", serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+    .chapters ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+      columns: 2;
+      column-gap: 3rem;
+    }
+    .chapters li {
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--line);
+      break-inside: avoid;
+    }
+    .chapters .num { color: var(--accent); font-weight: 700; margin-right: .5rem; }
+
+    .details {
+      margin-top: 3.5rem;
+      padding: 1.6rem 1.8rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: .6rem;
+    }
+    .details h2 {
+      margin: 0 0 .8rem;
+      font-family: "Newsreader", serif;
+      font-size: 1.5rem;
+    }
+    .details ul { margin: 0; padding-left: 1.2rem; }
+    .details li { margin-bottom: .35rem; }
+
+    footer {
+      background: var(--surface-2);
+      border-top: 1px solid var(--line);
+    }
+    .footer-inner {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-inner p { margin: 0; color: var(--muted); }
+    .footer-inner a { font-weight: 700; text-underline-offset: .25rem; }
+
+    @media (max-width: 760px) {
+      .book { grid-template-columns: 1fr; gap: 1.8rem; }
+      .cover { max-width: 340px; }
+      .button { width: 100%; }
+      .chapters ol { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Primary navigation">
+    <a href="./">← Youtology</a>
+    <a href="./">Home</a>
+  </nav>
+
+  <main class="page">
+    <div class="book">
+      <div class="cover">
+        <img src="mechanics-of-the-mind-cover.webp" alt="Cover of The Mechanics of The Mind by Adam King — golden sunrise over a still lake" />
+      </div>
+      <div>
+        <h1>The Mechanics of The Mind</h1>
+        <p class="byline">by Adam King</p>
+        <p class="price">$7.99 <span>one-time purchase</span></p>
+        <a class="button" href="https://buy.stripe.com/5kQ4gAg9peGQ6A00uVcbC1s">Buy the book — $7.99</a>
+        <p class="buy-note">Secure checkout with Stripe. After your purchase, the book files are emailed to you.</p>
+        <div class="intro">
+          <p>For as long as I can remember, I&rsquo;ve been fascinated by the quiet, unspoken power that lives inside every human being. Not the power we&rsquo;re taught to chase &mdash; titles, achievements, applause &mdash; but the power that hums beneath the surface of our thoughts, the power that whispers to us in moments of intuition, clarity, and impossible knowing.</p>
+          <p>This book was born from a simple but relentless question: <em>&ldquo;What is the human mind truly capable of when we stop treating it as ordinary?&rdquo;</em></p>
+          <p>I wrote this book because I believe the mind is a bridge &mdash; between the physical and the unseen, between logic and intuition, between what we know and what we are capable of knowing. When we understand its mechanics, we unlock abilities that look supernatural only to those who have forgotten their own design.</p>
+          <p>This is not a book of theories. It is a book of remembrance. A reminder that the mind is not merely a tool &mdash; it is a gateway. A reminder that intuition is not guesswork &mdash; it is intelligence. A reminder that the human being is not limited &mdash; only conditioned.</p>
+          <p>If you feel there is more to you &mdash; more depth, more knowing, more potential &mdash; you are right. If you feel you were built for something higher &mdash; you are right. This book is my attempt to map that truth. Not to convince you, but to awaken what you already know and already possess.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="chapters" aria-labelledby="chapters-heading">
+      <h2 id="chapters-heading">What&rsquo;s inside</h2>
+      <ol>
+        <li><span class="num">1</span>Introduction</li>
+        <li><span class="num">2</span>The Root of Life and Death</li>
+        <li><span class="num">3</span>Three Functions of The Mind</li>
+        <li><span class="num">4</span>The Mind vs. The Brain</li>
+        <li><span class="num">5</span>The Laws of Humanity</li>
+        <li><span class="num">6</span>Life and True Potential</li>
+        <li><span class="num">7</span>The Code of Power</li>
+        <li><span class="num">8</span>The Power of Patience and Possession</li>
+        <li><span class="num">9</span>Vision vs. Collision</li>
+        <li><span class="num">10</span>The Designed Life</li>
+        <li><span class="num">11</span>Everything Is Energy</li>
+        <li><span class="num">12</span>The Switch</li>
+        <li><span class="num">13</span>Overlaying The Mind</li>
+        <li><span class="num">14</span>The Place of Authority</li>
+        <li><span class="num">15</span>Total Immersion</li>
+        <li><span class="num">16</span>Working Faith</li>
+        <li><span class="num">17</span>The Conversion</li>
+        <li><span class="num">18</span>Energy In The Mix</li>
+        <li><span class="num">19</span>Physical vs. Spiritual</li>
+        <li><span class="num">20</span>Salvation</li>
+        <li><span class="num">21</span>Memorization vs. Meditation</li>
+        <li><span class="num">22</span>Kingdom Commonwealth</li>
+        <li><span class="num">23</span>Heaven On Earth</li>
+        <li><span class="num">&mdash;</span>Conclusion</li>
+      </ol>
+    </section>
+
+    <section class="details" aria-labelledby="details-heading">
+      <h2 id="details-heading">What you get</h2>
+      <ul>
+        <li><strong>EPUB</strong> — for your e-reader, phone, or tablet. Turns pages like a book.</li>
+        <li><strong>PDF</strong> — 186 pages, easy to read on any screen or print.</li>
+        <li>Both files are emailed to you after purchase.</li>
+        <li>23 chapters plus the Conclusion — about 29,500 words.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Adam King — Youtology</p>
+      <p><a href="./">Back to Youtology</a></p>
+    </div>
+  </footer>
+</body>
+</html>
